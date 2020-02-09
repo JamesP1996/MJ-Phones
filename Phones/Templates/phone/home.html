@@ -1,0 +1,7 @@
+{% extends "phone/base.html" %}
+{% block content %}
+    <h1>MJ-Phones Home!</h1>
+        {% for phone in phones %}
+            <h2>{{ phone.brand }} {{ phone.name }} {{ phone.screen }}</h2>
+        {% endfor %}
+{% endblock content %}
