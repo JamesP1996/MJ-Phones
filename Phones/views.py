@@ -17,5 +17,11 @@ def home(request):
     }
     return render(request, 'phone/home.html', context)
 
-def about(request):
-    return render(request, 'phone/about.html', {'title': 'About'})
+def phones(request):
+    return render(request, 'phone/phones.html', {'title': 'Devices'})
+
+def accessories(request):
+    return render(request,'phone/accessories.html', {'title':'Accessories'})
+
+def comparePhones(request):
+    return render(request,'phone/compare.html',{'title':'Compare-Phones'})
