@@ -6,6 +6,7 @@ body {
   background-repeat: no-repeat;
   background-color: rgb(0, 7, 71); /* ending colour of gradient */
 }
+
 .home-h1{
   text-align: center;
   text-shadow: 2px 2px #9bbbff;
@@ -15,6 +16,7 @@ body {
   
   
 }
+
 html {
   height: 100%
 }
@@ -25,9 +27,15 @@ html {
   width: 50%;
 }
 
+
+
+.copyright{
+  padding: 25%;
+}
+
 .main{
   background-color: white;
-  height: 140%;
+  /* height: 140%; */
   width: 140%;
 }
 

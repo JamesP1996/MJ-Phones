@@ -1,12 +1,11 @@
 {% extends "phone/base.html" %}
 {% block content %}
-{%load static%}
-<link rel="stylesheet" href="{% static 'main.css' %}">
+
 <div class="main">
     <h1 class="home-h1"><b>MJ-Phones</b></h1>
     <h2 class="center-text">Find the Best Phone For You!</h2>
 
-<body class="body-home">
+
 <p>
     Here at MJ-Phones we believing in delivering a seamless phone review, comparison and purchasing platform.
     Created in <b>2020</b> we have delivered a <b>satisfactory experience to over 80% of our customers</b>.
@@ -26,7 +25,7 @@
         <img class="d-block w-100" src="https://akm-img-a-in.tosshub.com/indiatoday/images/story/202001/galaxy-a51-official-2__1_-770x433.jpeg?AZZggXMnKj39uo9NI5avj5X_Z18.56_Q" alt="Second slide">
       </div>
       <div class="carousel-item">
-        <img class="d-block w-100" src="https://www.samsung.com/global/galaxy/galaxy-s20/images/kv/galaxy-s20_highlights_kv_00.jpg" alt="Third slide">
+        <img class="d-block w-100" src="https://www.cinema5d.com/wp-content/uploads/2020/02/galaxy_s20_ultra_2.jpg" alt="Third slide">
       </div>
     </div>
     <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -45,16 +44,8 @@ Delivering a Massive 108mp Camera, A Amoled Screen with a 120hz screen and the b
 It is delivering performance not seen before in a smart phone!</p>
 </div>
 
-
-
-
-
-
-</body>
-
         {% comment %} {% for phone in phones %}
             <h2>{{ phone.brand }} {{ phone.name }} {{ phone.screen }}</h2>
         {% endfor %} {% endcomment %}
-    
         
 {% endblock content %}
