@@ -1,7 +1,43 @@
 {% extends "phone/base.html" %}
 {% block content %}
-    <h1>MJ-Phones Home!</h1>
-        {% for phone in phones %}
-            <h2>{{ phone.brand }} {{ phone.name }} {{ phone.screen }}</h2>
-        {% endfor %}
+
+<div class="main">
+  <h1 class="home-h1"><b>MJ-Phones</b></h1>
+  <h2 class="center-text">Find the Best Phone For You!</h2>
+
+
+  <p>
+    Here at MJ-Phones we believing in delivering a seamless phone review, comparison and purchasing platform.
+    Created in <b>2020</b> we have delivered a <b>satisfactory experience to over 80% of our customers</b>.
+  </p>
+  <h3 class="center-text">NEWS!</h3>
+  <div>
+    <img class="d-block w-100"
+      src="https://boygeniusreport.files.wordpress.com/2020/01/gs20-ultra-concept.jpg?quality=98&strip=all&w=1200"
+      alt="First slide">
+    <h4>New Samsung Galaxy S20 Ultra Phone Release!</h4>
+    <p>Samsung Delivers their new flagship phone that blows Apple's out of the water.
+      I guess you could say the apple fell from the tree!
+      Delivering a Massive 108mp Camera, A Amoled Screen with a 120hz screen and the brand new Xynos Processor
+      It is delivering performance not seen before in a smart phone!</p>
+  </div>
+  <div>
+    <img class="d-block w-100" src="https://cdn.mos.cms.futurecdn.net/XKfUyzAzMfDws6GCbRcwPN-650-80.jpg"
+      alt="First slide">
+    <h4>Best headphones 2020: Sony WH-1000XM3</h4>
+    <p>They're pretty consistent with what Sony has released in the last two years in the form of the Sony WH-1000XM2
+      and Sony MDR-1000X,
+      improving on some already fantastic models.A dominant noise-cancelling pair of headphones,
+      the Sony WH-1000XM3 can beat anything Bose has with ease.</p>
+
+  </div>
+
+</div>
+
+
+
+{% comment %} {% for phone in phones %}
+<h2>{{ phone.brand }} {{ phone.name }} {{ phone.screen }}</h2>
+{% endfor %} {% endcomment %}
+
 {% endblock content %}
