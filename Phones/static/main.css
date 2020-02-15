@@ -28,7 +28,6 @@ html {
 }
 
 
-
 .copyright{
   padding: 25%;
 }
@@ -37,6 +36,7 @@ html {
   background-color: white;
   /* height: 140%; */
   width: 140%;
+  padding-bottom: 300px;
 }
 
 .center-text{
