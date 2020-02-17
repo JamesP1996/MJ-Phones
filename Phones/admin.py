@@ -1,3 +1,6 @@
 from django.contrib import admin
+from .models import AddPhone
+from .models import AddAccessory
 
-# Register your models here.
+admin.site.register(AddPhone)
+admin.site.register(AddAccessory)

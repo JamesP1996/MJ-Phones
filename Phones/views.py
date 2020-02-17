@@ -1,27 +1,25 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-
-phones = [
-    {
-        'brand': 'Samsung',
-        'name': 'Galaxy S10',
-        'screen': '1920x1080'
-    }
-]
-
-
+from .models import AddPhone
+from .models import AddAccessory
 # Create your views here.
 def home(request):
-    context = {
-        'phones': phones
-    }
-    return render(request, 'phone/home.html', context)
+    return render(request, 'phone/home.html')
+
 
 def phones(request):
-    return render(request, 'phone/phones.html', {'title': 'Devices'})
+    context = {
+        'phones': AddPhone.objects.all()
+    }
+    return render(request, 'phone/phones.html', {'title': 'Phones'}, context)
+
 
 def accessories(request):
-    return render(request,'phone/accessories.html', {'title':'Accessories'})
+    context= {
+        'accessories': AddAccessory.objects.all()
+    }
+    return render(request, 'phone/accessories.html', context)
+
 
 def comparePhones(request):
-    return render(request,'phone/compare.html',{'title':'Compare-Phones'})
+    return render(request, 'phone/compare.html', {'title': 'Compare-Phones'})

@@ -34,13 +34,14 @@ database while keeping css-->
 <h1 class="home-h1">MJ-Phones Devices</h1>
 
 <!--First Item-->
+{% for phone in phones %}
 <div class="device-product-div">
 <div class="border-top rounded">
-    <img class="device-images border" src="https://image-cdn.hypb.st/https%3A%2F%2Fhypebeast.com%2Fimage%2F2020%2F02%2Fsamsung-galaxy-unpacked-s20-plus-ultra-announcement-006.jpg?q=75&w=800&cbr=1&fit=max" alt="s20">
+    <img class="device-images border" src="{{ phone.image }}">
     <div class="info">
-    <a href="" class="product-link"><h2>Galaxy S20 Ultra Android SmartPhone 
-    <br>- Sim Free - Black</h2></a>
-    <h4>€ 1350 </h4>
+    <a href="" class="product-link"><h2>{{ phone.name }}
+    <br>-{{ phone.colour }}</h2></a>
+    <h4>€ {{ phone.price }} </h4>
 
 <!--Buy Buttons-->
 <div class="buy-buttons">
@@ -48,23 +49,7 @@ database while keeping css-->
     <button class="btn btn-info">Add to Basket</button>
     <img class="affiliate-button" src="https://www.cashtik.com/wp-content/uploads/2018/04/amazon-buy-button.png" alt="amazonButton">
 </div>
-
-<!--Second Item-->
-<div class="border-top rounded">
-    <img class="device-images border" src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-xr-white-select-201809?wid=441&hei=529&fmt=jpeg&qlt=95&op_usm=0.5,0.5&.v=1551226036668" alt="XR">
-    <div class="info">
-    <a href="" class="product-link"><h2>IPhone XR 
-    <br>- Sim Free - White</h2></a>
-    <h4>€ 1500 </h4>
-
-<!--Buy Buttons-->
-<div class="buy-buttons">
-    <button class="btn btn-info">Buy</button>
-    <button class="btn btn-info">Add to Basket</button>
-    <img class="affiliate-button" src="https://www.cashtik.com/wp-content/uploads/2018/04/amazon-buy-button.png" alt="amazonButton">
-</div>
-</div>
-</div>
+{% endfor %}
 </div>
 
     
