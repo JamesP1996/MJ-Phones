@@ -1,3 +1,21 @@
 from django.db import models
 
-# Create your models here.
+class AddPhone(models.Model):
+    brand = models.CharField(max_length=20)
+    Image = models.ImageField()
+    Price = models.FloatField()
+    Colour = models.CharField(max_length=20)
+    Height = models.FloatField()
+    Width = models.FloatField()
+    OS = models.CharField(max_length=20)
+    Display = models.FloatField()
+    MainCamera = models.FloatField()
+    FrontCamera = models.FloatField()
+    Processor = models.CharField(max_length=20)
+    CPU = models.FloatField()
+    RAM = models.IntegerField()
+    InternalMemory = models.IntegerField()
+    FourG = models.BooleanField()
+    Video = models.CharField(max_length=20)
+    Battery = models.IntegerField()
+    Descrption = models.TextField()
