@@ -11,7 +11,7 @@ def phones(request):
     context = {
         'phones': AddPhone.objects.all()
     }
-    return render(request, 'phone/phones.html', {'title': 'Phones'}, context)
+    return render(request, 'phone/phones.html', context)
 
 
 def accessories(request):
