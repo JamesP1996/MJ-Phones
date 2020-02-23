@@ -1,4 +1,7 @@
 from django.db import models
+from django.contrib.auth.models import User
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 
 class AddPhone(models.Model):
     brand = models.CharField(max_length=20)
@@ -30,17 +33,6 @@ class AddAccessory(models.Model):
     price = models.FloatField()
     description = models.TextField()
     image = models.TextField()
-
-    def __str__(self):
-        return self.name
-
-class User(models.Model):
-    name = models.CharField(max_length=20)
-    surname = models.CharField(max_length=20)
-    mail = models.EmailField()
-    address = models.TextField()
-    phoneNumber = models.IntegerField()
-    postCode = models.CharField(max_length=20)
 
     def __str__(self):
         return self.name

@@ -1,8 +1,10 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from .models import AddPhone
 from .models import AddAccessory
+
 # Create your views here.
+
 def home(request):
     return render(request, 'phone/home.html')
 
@@ -23,3 +25,4 @@ def accessories(request):
 
 def comparePhones(request):
     return render(request, 'phone/compare.html', {'title': 'Compare-Phones'})
+
