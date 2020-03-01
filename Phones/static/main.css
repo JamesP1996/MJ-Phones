@@ -175,7 +175,7 @@ a.article-title:hover {
   width: 100%;
   background-color: white;
   text-align: center;
-  margin-bottom: 10px;
+  
   
 }
 
@@ -187,6 +187,19 @@ a.article-title:hover {
   width: 150px;
   margin-bottom: 20px;
   margin-left: 25%;
+  padding-left: 2rem; 
+  padding-top: 1px;
+}
+
+.buy-buttons-accessories{
+  display: flex;
+  flex-direction: row;
+  height: 40px;
+  width: 150px;
+  margin-bottom: 20px;
+  margin-left: 25%;
+  padding-left: 4rem; 
+  padding-top: 1px;
 }
 
 .btn{
@@ -199,10 +212,17 @@ a.article-title:hover {
   width: 150px;
 }
 
-.device-images{
-  width: 30rem;
-  height:25rem;
+.d-title{
+  padding-top: 20px;
+  color: #428bca;
+  text-shadow: 2px 2px #2a2a2a3d;
 }
+.device-images{
+  
+  height:20rem;
+  padding-left: 3rem;
+}
+
 
 .product-link:hover{
   color: #483d8b;

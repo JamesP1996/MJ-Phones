@@ -1,35 +1,33 @@
 {% extends "phone/base.html" %}
 {% block content %}
 
-<!--Side Bar-->
-<div class="sidenav">
-  <a href="#">Category</a>
-  <a href="#">Price</a>
-  <a href="#">Brand</a>
-  <a href="#">Avg. Review</a>
-</div>
 
 <!--Page Content-->
 <h1 class="home-h1">MJ-Phones Accesories</h1>
 <div class="device-product-div">
 
 <!--Change with a For Each that grabs from database while keeping css-->
-<!--First Item-->
+<!--Each Device Item-->
+
     {% for accessory in accessories %}
-<div class="border-top rounded">
-    <img class="device-images border" src="{{ accessory.image}}" alt="s20">
-    <div class="info">
-    <a href="" class="product-link"><h2>{{ accessory.name}}
-    <br></h2></a>
-    <h4>€ {{accessory.price}} </h4>
-<!--Buttons to Buy Item-->
-<div class="buy-buttons">
-    <button class="btn btn-info">Buy</button>
-    <button class="btn btn-info">Add to Basket</button>
-    <img class="affiliate-button" src="https://www.cashtik.com/wp-content/uploads/2018/04/amazon-buy-button.png" alt="amazonButton">
-</div>
-        {% endfor %}
-</div>
+    <div id={{ accessory.id }} class="border-top rounded">
+        
+        <div class="info">
+        <h2 class="d-title">{{ accessory.name}}</h2>
+        <img class="device-images border" src="{{ accessory.image }}" alt="s20"> <!--End of device-images border-->
+        <p><b>Description: </b> {{ accessory.description }} </p>
+        <h5 style="color:red">Price: € {{ accessory.price }} </h5>
+        </div> 
+
+        <!--Buttons to Buy Item-->
+        <div class="buy-buttons-accessories">
+        <button class="btn btn-info"><i class="fa fa-cc-paypal"></i> Buy Now</button>
+        <button class="btn btn-info"><i class="fa fa-cart-plus"></i> Add to Basket</button>
+        </div> <!-- End of Buy-Buttons Div -->
+
+    </div> <!-- End of Border-top Rounded -->
+    {% endfor %}
+</div> <!-- End of Device-Product-Div -->
 
     
 {% endblock content %}

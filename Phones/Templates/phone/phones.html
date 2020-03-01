@@ -1,30 +1,6 @@
 {% extends "phone/base.html" %}
 {% block content %}
 
-<!--Side Bar-->
-<!--Needs to be Done Out later on-->
-<div class="sidenav">
-
-<div class="Brand">
-<a href="#">Brands</a>
-</div>
-
-<div>
-<a href="#">Screen Size</a>
-</div>
-
-<div>
-  <a href="#">Price</a>
-</div>
-
-<div>
-  <a href="#">Phone Camera Resolution</a>
-</div>
-
-<div>
-  <a href="#">Avg. Review</a>
-</div>
-</div>
 
 <!--Change with a For Each that grabs from
 database while keeping css-->
@@ -35,22 +11,71 @@ database while keeping css-->
 
 <!--First Item-->
 {% for phone in phones %}
-<div class="device-product-div">
-<div class="border-top rounded">
-    <img class="device-images border" src="{{ phone.image }}">
-    <div class="info">
-    <a href="" class="product-link"><h2>{{ phone.name }}
-    <br>-{{ phone.colour }}</h2></a>
-    <h4>€ {{ phone.price }} </h4>
+<div class="device-product-div" style="margin-bottom: 50px">
+  <h2 class="d-title">{{ phone.brand }} {{ phone.name }}</h2>
+  <div class="border-top rounded">
+    <img align="left" class="device-images border" src="{{ phone.image }}">
+    <p> <b>Color:</b> {{ phone.colour }}</p>
+    <p> <b>Display Size:</b> {{ phone.display }} inches</p>
+    <p> <b>Main Camera:</b> {{ phone.mainCamera }} Megapixels</p>
+    <p> <b>Front Camera:</b> {{ phone.frontCamera }} Megapixels</p>
+    <p> <b>Processor:</b> {{ phone.processor }} {{phone.cpu}}ghz</p>
+    <h5 style="color:red">Price: € {{ phone.price }} </h5>
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#phoneModal{{ forloop.counter }}">
+      <i class="fa fa-tasks"></i> Show All Product Details
+    </button>
 
-<!--Buy Buttons-->
-<div class="buy-buttons">
-    <button class="btn btn-info">Buy</button>
-    <button class="btn btn-info">Add to Basket</button>
-    <img class="affiliate-button" src="https://www.cashtik.com/wp-content/uploads/2018/04/amazon-buy-button.png" alt="amazonButton">
-</div>
-{% endfor %}
+    <!-- Modal -->
+    <div class="modal fade" id="phoneModal{{ forloop.counter }}" tabindex="-1" role="dialog"
+      aria-labelledby="phoneModalLabel{{ forloop.counter }}" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="phoneModalLabel">{{ phone.brand }} {{ phone.name}}</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="info">
+              <p> <b>Color:</b> {{ phone.colour }}</p>
+              <p> <b>Display Size:</b> {{ phone.height }}x{{ phone.width }}</p>
+              <p> <b>OS:</b> {{ phone.os }}</p>
+              <p> <b>Display Size:</b> {{ phone.display }} inches</p>
+              <p> <b>Main Camera:</b> {{ phone.mainCamera }} Megapixels</p>
+              <p> <b>Front Camera:</b> {{ phone.frontCamera }} Megapixels</p>
+              <p> <b>Processor:</b> {{ phone.processor }} {{phone.cpu}}ghz</p>
+              <p> <b>Ram:</b> {{ phone.ram }}gb</p>
+              <p> <b>Internal Memory:</b> {{ phone.internalMemory }}gb</p>
+
+              {% if phone.fourG is True %}
+              <p> <b>4G Ready:</b> &#10004 </p>
+              {% endif %}
+              {% if phone.fourG is False %}
+              <p> <b>4G Ready:</b> &#10006 </p>
+              {% endif %}
+
+              <p> <b>Video Recording:</b> {{ phone.video }} </p>
+              <p> <b>Battery Capacity:</b> {{ phone.battery }}mAH </p>
+              <h5 style="color:red">Price: € {{ phone.price }} </h5>
+              <p> <b> Description: </b><br> {{ phone.description }} </p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--Buy Buttons-->
+    <div class="buy-buttons">
+      <button class="btn btn-info"><i class="fa fa-cc-paypal"></i> Buy Now</button>
+      <button class="btn btn-info"><i class="fa fa-cart-plus"></i> Add to Basket</button>
+    </div>
+    {% endfor %}
+  </div>
 </div>
 
-    
-{% endblock content %}
+  {% endblock content %}
