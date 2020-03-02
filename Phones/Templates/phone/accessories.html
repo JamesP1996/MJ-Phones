@@ -21,8 +21,10 @@
 
         <!--Buttons to Buy Item-->
         <div class="buy-buttons-accessories">
-        <button class="btn btn-info"><i class="fa fa-cc-paypal"></i> Buy Now</button>
-        <button class="btn btn-info"><i class="fa fa-cart-plus"></i> Add to Basket</button>
+        {% if user.is_authenticated %}
+            <button class="btn btn-info"><i class="fa fa-cc-paypal"></i> Buy Now</button>
+            <button class="btn btn-info"><i class="fa fa-cart-plus"></i> Add to Basket</button>
+        {% endif %}
         </div> <!-- End of Buy-Buttons Div -->
 
     </div> <!-- End of Border-top Rounded -->

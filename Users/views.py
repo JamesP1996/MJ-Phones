@@ -17,7 +17,7 @@ def register(request):
             profile_form.full_clean()
             profile_form.save()
             messages.success(request, f'Account Created for {username}!')
-            return redirect('MJ-Phones-Home')                      
+            return redirect('MJ-Phones-Login')
     else:
         form = UserRegisterForm()
         profile_form = ProfileRegisterForm()
