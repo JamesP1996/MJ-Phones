@@ -71,8 +71,10 @@ database while keeping css-->
 
     <!--Buy Buttons-->
     <div class="buy-buttons">
+    {% if user.is_authenticated %}
       <button class="btn btn-info"><i class="fa fa-cc-paypal"></i> Buy Now</button>
       <button class="btn btn-info"><i class="fa fa-cart-plus"></i> Add to Basket</button>
+    {% endif %}
     </div>
     {% endfor %}
   </div>
