@@ -8,5 +8,5 @@ urlpatterns = [
     path('phones/',views.phones,name='MJ-Phones-Devices'),
     path('accessories/',views.accessories,name='MJ-Phones-Accessories'),
     path('compare/',views.comparePhones,name='MJ-Phones-Compare-Phones'),
-    
+    path('charge/<int:phone_id>/',views.charge,name="MJ-Phone-Charge")
 ]
