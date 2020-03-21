@@ -26,6 +26,9 @@ class AddPhone(models.Model):
 
     def __str__(self):
         return self.name
+    
+    def stripe_price(self):
+        return self.price * 100
 
 class AddAccessory(models.Model):
     name = models.CharField(max_length=20)

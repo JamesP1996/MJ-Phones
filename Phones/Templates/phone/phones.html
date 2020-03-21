@@ -72,8 +72,18 @@ database while keeping css-->
     <!--Buy Buttons-->
     <div class="buy-buttons">
     {% if user.is_authenticated %}
-      <button class="btn btn-info"><i class="fa fa-cc-paypal"></i> Buy Now</button>
+    <form action="{% url 'MJ-Phone-Charge' phone_id=phone.id  %}" method="post">
+      {% csrf_token %}
+      <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+        data-key="{{ key }}"
+        data-description="{{phone.brand}} {{phone.name}}"
+        data-amount="{{phone.stripe_price}}"
+        data-locale="auto">
+      </script>
+    </form>
+
       <button class="btn btn-info"><i class="fa fa-cart-plus"></i> Add to Basket</button>
+    
     {% endif %}
     </div>
     {% endfor %}
