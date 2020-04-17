@@ -1,15 +1,119 @@
 {% extends "phone/base.html" %}
 {% block content %}
 
+<!--Script for Filter Button Show Hide Filters (Done to Remove Clutter during general browsing)-->
+<script>
+/* When the user clicks on the button,
+toggle between hiding and showing the dropdown content */
+function dropDown() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
 
-<!--Change with a For Each that grabs from
-database while keeping css-->
-
+/* Remove All Empty Inputs From the URL After You Submit Filter Form (Remove Clutter and Shortens the URL) */
+function disableEmptyInputs(form) {
+  var controls = form.elements;
+  for (var i=0, iLen=controls.length; i<iLen; i++) {
+    controls[i].disabled = controls[i].value == '';
+  }
+}
+</script>
 <!--Main Content-->
-
+<!--Button To Show/Hide Filter Form-->
+<button onclick="dropDown()" class="dropbtn">Filter Results</button>
+<!-- Phone Devices Header -->
 <h1 class="home-h1">MJ-Phones Devices</h1>
+<div id="myDropdown" class="dropdown-content">
+    <!--Start of Filter Form-->
+    <form method="GET" action="." id="filter" class="device-product-div filter" onsubmit="disableEmptyInputs(this)">
+      <!--Filter for the Products Name eg, Galaxy S10, IPhone X , MotoG-->
+      <div class="form-row">
+          <div class="form-group col-12">
+              <div class="input-group">
+                  <input class="form-control py-2 border-right-0 border" type="search" name="name_contains" placeholder="Name contains..." />
+                  <span class="input-group-append">
+                      <div class="input-group-text bg-transparent">
+                          <i class="fa fa-search"></i>
+                      </div>
+                  </span>
+              </div>
+          </div>        
+      </div>
+      <!--Filter for the Products Brand eg. Samsung,LG,Apple,etc-->
+      <div class="form-row">
+          <div class="form-group col-12">
+              <div class="input-group">
+                  <input class="form-control py-2 border-right-0 border" type="search" name="brand_contains" placeholder="Brand contains..." />
+                  <span class="input-group-append">
+                      <div class="input-group-text bg-transparent">
+                          <i class="fa fa-search"></i>
+                      </div>
+                  </span>
+              </div>
+          </div>        
+      </div>
 
-<!--First Item-->
+      <!--Filters for The Minimum Price, Maximum Price , Minimum Memory , Minimum Ram, Cpu Speed and Cpu Cores-->
+      <div class="form-row">
+        <div class="form-group col-md-2 col-lg-2">
+          <label for="min_price">Min Price</label>
+          <input type="number" min=0 class="form-control" id="min_price" placeholder="0" name="min_price">
+        </div>
+        <div class="form-group col-md-2 col-lg-2">
+          <label for="max_price">Maximum Price</label>
+          <input type="number" min=0 class="form-control" id="max_price" placeholder="0" name="max_price">
+        </div>
+        <div class="form-group col-md-2 col-lg-2">
+          <label for="min_space">Min Memory</label>
+          <input type="number" min=0 class="form-control" id="max_space" placeholder="0" name="min_space">
+        </div>
+        <div class="form-group col-md-2 col-lg-2">
+          <label for="min_ram">Min Ram</label>
+          <input type="number" min=0 class="form-control" id="max_ram" placeholder="0" name="min_ram">
+        </div>
+        <div class="form-group col-md-2 col-lg-2">
+          <label for="min_cpuspeed">Min Cpu Speed</label>
+          <input type="number" min=0 class="form-control" id="min_cpuspeed" placeholder="0" name="min_cpuspeed">
+        </div>
+        <div class="form-group col-md-2 col-lg-2">
+          <label for="min_ram">Min CPU Cores</label>
+          <input type="number" min=0 class="form-control" id="max_ram" placeholder="0" name="min_ram">
+        </div>
+      </div>
+
+      <!--Filters For Display,Resolution Height/Width, Cameras and Battery Capacity in mAh-->
+      <div class="form-row">
+        <div class="form-group col-md-2 col-lg-2">
+          <label for="min_display">Display Size in Inches</label>
+          <input type="number" min=0 class="form-control" id="min_display" placeholder="0" name="min_display">
+        </div>
+        <div class="form-group col-md-2 col-lg-2">
+          <label for="min_width">Resolution Width</label>
+          <input type="number" min=0 class="form-control" id="min_width" placeholder="0" name="min_width">
+        </div>
+        <div class="form-group col-md-2 col-lg-2">
+          <label for="min_height">Resolution Height</label>
+          <input type="number" min=0 class="form-control" id="min_height" placeholder="0" name="min_height">
+        </div>
+        <div class="form-group col-md-2 col-lg-2">
+          <label for="min_mcamera">Main Camera Megapixels</label>
+          <input type="number" min=0 class="form-control" id="min_mcamera" placeholder="0" name="min_mcamera">
+        </div>
+        <div class="form-group col-md-2 col-lg-2">
+          <label for="min_fcamera">Front Camera Megapixels</label>
+          <input type="number" min=0 class="form-control" id="min_fcamera" placeholder="0" name="min_fcamera">
+        </div>
+        <div class="form-group col-md-2 col-lg-2">
+          <label for="min_battery">Battery Capacity mAh</label>
+          <input type="number" min=0 class="form-control" id="min_battery" placeholder="0" name="min_battery">
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Search</button>
+    </form>
+</div>
+
+
+<!--For Each Item in Phones. Display These Details on The Main Page (Without Clicking into Model) -->
 {% for phone in phones %}
 <div class="device-product-div" style="margin-bottom: 50px">
   <h2 class="d-title">{{ phone.brand }} {{ phone.name }}</h2>
@@ -21,12 +125,13 @@ database while keeping css-->
     <p> <b>Front Camera:</b> {{ phone.frontCamera }} Megapixels</p>
     <p> <b>Processor:</b> {{ phone.processor }} {{phone.cpu}}ghz</p>
     <h5 style="color:red">Price: € {{ phone.price }} </h5>
-    <!-- Button trigger modal -->
+    
+    <!-- Button trigger Modal(Holds All Phone Details for the User to See) -->
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#phoneModal{{ forloop.counter }}">
       <i class="fa fa-tasks"></i> Show All Product Details
     </button>
 
-    <!-- Modal -->
+    <!-- Modal for Phone Details Extended -->
     <div class="modal fade" id="phoneModal{{ forloop.counter }}" tabindex="-1" role="dialog"
       aria-labelledby="phoneModalLabel{{ forloop.counter }}" aria-hidden="true">
       <div class="modal-dialog" role="document">
@@ -40,12 +145,12 @@ database while keeping css-->
           <div class="modal-body">
             <div class="info">
               <p> <b>Color:</b> {{ phone.colour }}</p>
-              <p> <b>Display Size:</b> {{ phone.height }}x{{ phone.width }}</p>
-              <p> <b>OS:</b> {{ phone.os }}</p>
+              <p> <b>Screen Resolution:</b> {{ phone.height }}x{{ phone.width }}</p>
               <p> <b>Display Size:</b> {{ phone.display }} inches</p>
+              <p> <b>OS:</b> {{ phone.os }}</p>
               <p> <b>Main Camera:</b> {{ phone.mainCamera }} Megapixels</p>
               <p> <b>Front Camera:</b> {{ phone.frontCamera }} Megapixels</p>
-              <p> <b>Processor:</b> {{ phone.processor }} {{phone.cpu}}ghz</p>
+              <p> <b>Processor:</b> {{ phone.processor }} {{phone.cpu}}ghz {{phone.cpu_cores}} Core</p>
               <p> <b>Ram:</b> {{ phone.ram }}gb</p>
               <p> <b>Internal Memory:</b> {{ phone.internalMemory }}gb</p>
 
@@ -78,16 +183,20 @@ database while keeping css-->
         data-key="{{ key }}"
         data-description="{{phone.brand}} {{phone.name}}"
         data-amount="{{phone.stripe_price}}"
-        data-locale="auto">
+        data-locale="auto"
+        data-label="Buy Product With Card"
+        >
       </script>
-    </form>
-
-      <button class="btn btn-info"><i class="fa fa-cart-plus"></i> Add to Basket</button>
     
+    </form>
+    
+    {% else %}
+    <p style="color:red;padding-right:5rem;text-decoration-line:underline;">!User Must Be Logged In, To Purchase a Product!</p>
     {% endif %}
+      
+    
     </div>
     {% endfor %}
   </div>
 </div>
-
   {% endblock content %}

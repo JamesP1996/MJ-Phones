@@ -184,21 +184,10 @@ a.article-title:hover {
   display: flex;
   flex-direction: row;
   height: 40px;
-  width: 150px;
+  width: auto;
   margin-bottom: 20px;
   margin-left: 25%;
-  padding-left: 2rem; 
-  padding-top: 1px;
-}
-
-.buy-buttons-accessories{
-  display: flex;
-  flex-direction: row;
-  height: 40px;
-  width: 150px;
-  margin-bottom: 20px;
-  margin-left: 25%;
-  padding-left: 4rem; 
+  padding-left: 5.8rem; 
   padding-top: 1px;
 }
 

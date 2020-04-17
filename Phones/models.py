@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 
+# Phone Data Model for SQL LITE
 class AddPhone(models.Model):
     brand = models.CharField(max_length=20)
     name = models.CharField(max_length=20)
@@ -17,6 +18,7 @@ class AddPhone(models.Model):
     frontCamera = models.FloatField()
     processor = models.CharField(max_length=30)
     cpu = models.FloatField()
+    cpu_cores = models.IntegerField()
     ram = models.IntegerField()
     internalMemory = models.IntegerField()
     fourG = models.BooleanField()
@@ -30,12 +32,16 @@ class AddPhone(models.Model):
     def stripe_price(self):
         return self.price * 100
 
+# Accessory Data Model For SQL LITE
 class AddAccessory(models.Model):
     name = models.CharField(max_length=20)
     category = models.CharField(max_length=20)
     price = models.FloatField()
     description = models.TextField()
     image = models.TextField()
+    
+    def stripe_price(self):
+        return self.price * 100
 
     def __str__(self):
         return self.name

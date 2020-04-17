@@ -6,6 +6,8 @@ from .models import  Profile
 
 
 # Register your models here.
+# Register a User Profile Model in the Admin.py 
+# User Profile Contains Extra Like Addresses
 class UserProfileInline(admin.StackedInline):
     model = Profile
     can_delete = False

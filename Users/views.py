@@ -4,8 +4,10 @@ from .forms import UserRegisterForm,ProfileRegisterForm
 
 # Create your views here.
 
-
+# Register View
 def register(request):
+    # If Request is == POST. Add the Two Forms Created in Forms.py. Validate them and clean the data and then save the information.
+    # If the Information is Incorrect, Redirect to the Register Form which should now display Errors.
     if request.method == 'POST':
         form = UserRegisterForm(request.POST)
         profile_form = ProfileRegisterForm(request.POST)

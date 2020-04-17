@@ -1,20 +1,24 @@
 {% extends "phone/base.html" %}
 {% block content %}
+<!--Register Page-->
     <div class="content-section" style="margin-top:30px">
         <form method="POST">
             {% csrf_token %}
+            <!--If has a valid crsf token. Grab Register Form from forms.py -->
             <fieldset class="form-group">
                 <legend class="border-bottom mb-4">Join MJPhones</legend>
                 {{ form.as_p }}
                 {{ profile_form.as_p }}
             </fieldset>
             <div class="form-group">
+                <!--POST Registered Data to Register and Register the New User-->
                 <button class="btn btn-outline-info" type="submit">Sign Up</button>
             </div>
         </form>
+        <!-- In the Case a User Already has an Account. Give Them the Option to Sign In Instead -->
         <div class="border-top pt-3">
             <small class="text-muted">
-            Already Have An Account? <a href="#" class="ml-2">Sign In</a>
+            Already Have An Account? <a href="{% url 'MJ-Phones-Login' %}" class="ml-2">Sign In</a>
             </small>
         </div>
     </div>

@@ -1,17 +1,86 @@
+<!--Extend the Base HTML Template-->
 {% extends "phone/base.html" %}
+<!--Display Block Content-->
 {% block content %}
 
+<!--Script for Filter Button Show Hide Filters (Done to Remove Clutter during general browsing)-->
+<script>
+/* When the user clicks on the button,
+toggle between hiding and showing the dropdown content */
+function dropDown() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
 
-<!--Page Content-->
+/* Remove All Empty Inputs From the URL After You Submit Filter Form (Remove Clutter and Shortens the URL) */
+function disableEmptyInputs(form) {
+  var controls = form.elements;
+  for (var i=0, iLen=controls.length; i<iLen; i++) {
+    controls[i].disabled = controls[i].value == '';
+  }
+}
+
+</script>
+<!--Main Content-->
+<!--Button To Show/Hide Filter Form-->
+<button onclick="dropDown()" class="dropbtn">Filter Results</button>
+<!-- Accessory Header -->
 <h1 class="home-h1">MJ-Phones Accesories</h1>
+<div id="myDropdown" class="dropdown-content">
+    <!--Start of Filter Form-->
+    <form method="GET" action="." id="filter" class="device-product-div filter" onsubmit="disableEmptyInputs(this)">
+      
+      <!--Filter for the Products Name eg, Charger,Beats,Sony MDX,etc..-->
+      <div class="form-row">
+          <div class="form-group col-12">
+              <div class="input-group">
+                  <input class="form-control py-2 border-right-0 border" type="search" name="name_contains" placeholder="Name contains..." />
+                  <span class="input-group-append">
+                      <div class="input-group-text bg-transparent">
+                          <i class="fa fa-search"></i>
+                      </div><!--End of Input Group-Text div-->
+                  </span> <!--End of Input Group Append span-->
+              </div> <!--End of Input-Group div -->
+          </div> <!--End of Form-Group div -->       
+      </div> <!--End of Form Row div -->
+
+      <!--Filter By Category-->
+      <div class="form-row">
+        <div class="form-group col-md-4">
+            <label for="category_contains">Category</label>
+            <select id="category_contains" class="form-control" name="category_contains">
+              <option selected>Select...</option>
+              {% for cat in categories %}
+              <option value="{{ cat.category }}">{{ cat.category }}</option>
+              {% endfor %}
+            </select>
+        </div><!--End of form-group div (Category)-->
+
+        <!--Filter By Minimum Price-->
+        <div class="form-group col-md-2 col-lg-2">
+          <label for="min_price">Min Price</label>
+          <input type="number" min=0 class="form-control" id="min_price" placeholder="0" name="min_price">
+        </div><!--End of Min Price div-->
+
+        <!--Filter by Maximum Price-->
+        <div class="form-group col-md-2 col-lg-2">
+          <label for="max_price">Maximum Price</label>
+          <input type="number" min=0 class="form-control" id="max_price" placeholder="0" name="max_price">
+        </div><!--End of Max Price div-->
+      </div><!-- End of Form Row div -->
+
+      <button type="submit" class="btn btn-primary">Search</button>
+    </form><!-- End of Form -->
+</div><!--End of DropDown Button PopUp Menu-->
+
 <div class="device-product-div">
 
 <!--Change with a For Each that grabs from database while keeping css-->
-<!--Each Device Item-->
+<!--Each Accessory Item-->
 
     {% for accessory in accessories %}
     <div id={{ accessory.id }} class="border-top rounded">
         
+        <!--Info of Device-->
         <div class="info">
         <h2 class="d-title">{{ accessory.name}}</h2>
         <img class="device-images border" src="{{ accessory.image }}" alt="s20"> <!--End of device-images border-->
@@ -20,10 +89,21 @@
         </div> 
 
         <!--Buttons to Buy Item-->
-        <div class="buy-buttons-accessories">
+        <div class="buy-buttons">
         {% if user.is_authenticated %}
-            <button class="btn btn-info"><i class="fa fa-cc-paypal"></i> Buy Now</button>
-            <button class="btn btn-info"><i class="fa fa-cart-plus"></i> Add to Basket</button>
+        <!--Django Stripe API/Package Implementation-->
+        <form action="{% url 'MJ-Phones-Charge2' accessory_id=accessory.id  %}" method="post">
+         {% csrf_token %}
+         <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+           data-key="{{ key }}"
+           data-description="{{phone.brand}} {{phone.name}}"
+           data-amount="{{phone.stripe_price}}"
+           data-locale="auto"
+           data-label="Buy Product With Card"
+        ></script>
+        </form>
+        {% else %}
+        <p style="color:red;padding-right:5rem;text-decoration-line:underline;">!User Must Be Logged In <br> To Purchase a Product!</p>
         {% endif %}
         </div> <!-- End of Buy-Buttons Div -->
 
