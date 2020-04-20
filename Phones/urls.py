@@ -10,5 +10,6 @@ urlpatterns = [
     path('accessories/',views.accessories,name='MJ-Phones-Accessories'),
     path('compare/',views.comparePhones,name='MJ-Phones-Compare-Phones'),
     path('charge/<int:phone_id>/',views.charge,name="MJ-Phone-Charge"),
-    path('charge2/<int:accessory_id>',views.charge2,name="MJ-Phones-Charge2")
+    path('charge2/<int:accessory_id>',views.charge2,name="MJ-Phones-Charge2"),
+    path('orders/',views.orders,name="MJ-Phones-Orders")
 ]

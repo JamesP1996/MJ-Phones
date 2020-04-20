@@ -51,11 +51,13 @@
           <a class="nav-item nav-link" href="/phones">Phones</a>
           <a class="nav-item nav-link" href="/accessories">Phone Accessories</a>
           <a class="nav-item nav-link" href="/compare">Compare Phones</a>
+
         </div>
         <!-- Navbar Right Side -->
         <div class="navbar-nav">
 
         {% if user.is_authenticated %}
+          <a class="nav-item nav-link" href="{% url 'MJ-Phones-Orders' %}">My Orders</a>
           <a class="nav-item nav-link" href="{% url 'MJ-Phones-Logout' %}">Logout</a>
         {% else %}
           <a class="nav-item nav-link" href="{% url 'MJ-Phones-Login' %}">Login</a>

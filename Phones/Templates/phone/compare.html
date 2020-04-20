@@ -1,6 +1,86 @@
+<!--Extend the Base HTML Template-->
 {% extends "phone/base.html" %}
+<!--Display Block Content-->
 {% block content %}
-    <h1 class="home-h1">MJ-Phones Compare Phones</h1>
-    <h2 class="home-h1">Needs to be made after phone database up and running</h2>
+
+<!--Script for Filter Button Show Hide Filters (Done to Remove Clutter during general browsing)-->
+<script>
+/* When the user clicks on the button,
+toggle between hiding and showing the dropdown content */
+function dropDown() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+/* Remove All Empty Inputs From the URL After You Submit Filter Form (Remove Clutter and Shortens the URL) */
+function disableEmptyInputs(form) {
+  var controls = form.elements;
+  for (var i=0, iLen=controls.length; i<iLen; i++) {
+    controls[i].disabled = controls[i].value == '';
+  }
+}
+
+function comparePhones(){
     
+}
+
+</script>
+<!--Main Content-->
+<!-- Compare Header -->
+<h1 class="home-h1">MJ-Phones Comparison</h1>
+<!--Button To Show/Hide Filter Form-->
+<div >
+    <!--Start of Filter Form-->
+    <form method="GET" action="." id="filter" class="device-product-div filter" onsubmit="disableEmptyInputs(this)">
+      <!--Filter By Category-->
+
+        <div class="form-row">
+        <div class="form-group col-md-4">
+            <label for="name_contains1">Category</label>
+            <select id="name_contains1" class="form-control" name="name_contains1">
+              <option selected>Select...</option>
+              {% for fil in filter1 %}
+              <option value="{{ fil.name }}">{{ fil.name }}</option>
+              {% endfor %}
+            </select>
+        </div><!--End of form-group div (Category)-->
+        <!--Filter By Category-->
+        <div class="form-group col-md-4">
+            <label for="name_contains2">Category</label>
+            <select id="name_contains2" class="form-control" name="name_contains2">
+              <option selected>Select...</option>
+              {% for fil in filter2 %}
+              <option value="{{ fil.name }}">{{ fil.name }}</option>
+              {% endfor %}
+            </select>
+        </div><!--End of form-group div (Category)-->
+      </div>
+
+
+
+
+      <button type="submit" class="btn btn-primary">Compare</button>
+    </form><!-- End of Form -->
+
+</div><!--End of DropDown Button PopUp Menu-->
+    <div style='background-color:white;'>
+    {% if phonesSelected == True %}
+        <table>
+            {% for p1 in phone1 %}
+               <tr>
+                    <th>Battery Life:</th>
+                    <td>{{ p1.battery }}</td>
+                    <td>{{ p1.cpu}}</td>
+               </tr>
+            {% endfor %}
+
+            {% for p2 in phone2 %}
+                <tr>
+                    <th>Battery Life:</th>
+                    <td id="battery2">{{ p2.battery }}</td>
+                    <td>{{ p2.cpu}}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% endif %}
+    </div>
 {% endblock content %}
