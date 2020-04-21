@@ -71,6 +71,14 @@ run the server
 open broswer and type
 **localhost:8000 or 127.0.0.1:8000**
 
+# Tests
+Compare Phones - **Pass**  
+Filter Phones - **Pass**  
+Filter Accessories - **Pass**  
+Login - **Pass**  
+AdminPanel - **Pass**  
+Show Details - **Pass**  
+
 # Built with
 [Python](https://www.python.org/) - Language used  
 [Django](https://www.djangoproject.com/) - Web framework used  
