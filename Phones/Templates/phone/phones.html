@@ -115,9 +115,9 @@ function disableEmptyInputs(form) {
 
 <!--For Each Item in Phones. Display These Details on The Main Page (Without Clicking into Model) -->
 {% for phone in phones %}
-<div class="device-product-div" style="margin-bottom: 50px">
-  <h2 class="d-title">{{ phone.brand }} {{ phone.name }}</h2>
+<div class="device-product-div">
   <div class="border-top rounded">
+    <h2 class="d-title">{{ phone.brand }} {{ phone.name }}</h2>
     <img align="left" class="device-images border" src="{{ phone.image }}">
     <p> <b>Color:</b> {{ phone.colour }}</p>
     <p> <b>Display Size:</b> {{ phone.display }} inches</p>
@@ -125,11 +125,12 @@ function disableEmptyInputs(form) {
     <p> <b>Front Camera:</b> {{ phone.frontCamera }} Megapixels</p>
     <p> <b>Processor:</b> {{ phone.processor }} {{phone.cpu}}ghz</p>
     <h5 style="color:red">Price: € {{ phone.price }} </h5>
-    
+  </div> <!--End of Border-Top Rounded Div-->
+
     <!-- Button trigger Modal(Holds All Phone Details for the User to See) -->
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#phoneModal{{ forloop.counter }}">
       <i class="fa fa-tasks"></i> Show All Product Details
-    </button>
+    </button> <!-- End of Show All Products Details Button-->
 
     <!-- Modal for Phone Details Extended -->
     <div class="modal fade" id="phoneModal{{ forloop.counter }}" tabindex="-1" role="dialog"
@@ -141,7 +142,7 @@ function disableEmptyInputs(form) {
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
-          </div>
+          </div> <!--End of Modal Header-->
           <div class="modal-body">
             <div class="info">
               <p> <b>Color:</b> {{ phone.colour }}</p>
@@ -165,17 +166,17 @@ function disableEmptyInputs(form) {
               <p> <b>Battery Capacity:</b> {{ phone.battery }}mAH </p>
               <h5 style="color:red">Price: € {{ phone.price }} </h5>
               <p> <b> Description: </b><br> {{ phone.description }} </p>
-            </div>
+            </div><!-- End of Div Info-->
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+            </div> <!--End of Modal Footer Div-->
+          </div><!-- End of Modal Body Div-->
+        </div> <!-- End of Modal Content Div-->
+      </div> <!--End of Modal Dialog Div-->
+    </div> <!--End of Modal Fade Div-->
 
     <!--Buy Buttons-->
-    <div class="buy-buttons">
+  <div class="buy-buttons">
     {% if user.is_authenticated %}
     <form action="{% url 'MJ-Phone-Charge' phone_id=phone.id  %}" method="post">
       {% csrf_token %}
@@ -187,16 +188,15 @@ function disableEmptyInputs(form) {
         data-label="Buy Product With Card"
         >
       </script>
+    </form> <!--End of Stripe Button Button Checkout -->
+      {% else %}
+        <p style="color:red;padding-right:5rem;text-decoration-line:underline;">!User Must Be Logged In, To Purchase a Product!</p>
+      {% endif %}
+  </div> <!--End of Buy Buttons Div-->
     
-    </form>
-    
-    {% else %}
-    <p style="color:red;padding-right:5rem;text-decoration-line:underline;">!User Must Be Logged In, To Purchase a Product!</p>
-    {% endif %}
-      
-    
-    </div>
-    {% endfor %}
-  </div>
-</div>
-  {% endblock content %}
+</div> <!--End of Device-Product-Div -->    
+{% endfor %} <!-- End of For Each Phone Statement-->
+
+  
+
+{% endblock content %}
