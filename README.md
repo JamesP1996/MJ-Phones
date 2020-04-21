@@ -3,22 +3,22 @@ This website made by Mateusz Pawlowski and James Porter. It's platform is ''Mobi
 
 # About
 Upon openening the website the user is presented the front page of the website. The main page is just a simple welcoming page, showing off a phone and some accessories. On the top of the site, there is a navbar which allows the user to manoeuvre through the other links. You can pick between home, phones, phones accessories, compare and depending on wheter you are logged in or not at the right hand side you will see login, register, logout and my orders. Each page is granted with the same css style and page layout. Managing the page each time in each html page we decided to create a base.html which stored all the basic css style and page layout and imported that into each page.  
-Image
+![](images/mainPage.PNG)
 
 When in phones, the user is presented with all the different Phones that he can buy from the website. Each phone has a button on the right hand side of the image allowing you to show the product details, or buy that specific phone. All the phones are created in the admin panel that django provides and we used SQL Lite to store the phones into a database. To read the phones we used a simple for loop in order to go through the entire database. When pressed 'show all product details' the user can see more information about the product he would like to purchase. Just on top of the page, below the navigational bar, there is a button called 'filter' and that as the name says can filter the database to your liking. We implemented this to let the users find the phones they might be looking for more smoothly and productively.  
-Image
+![](images/phonesImage.PNG)
 
 We allowed the user not only to buy phones but also phone accessories, which include cases, cables, headphones etc. It is mostly like the phones page, where you can buy the product and filter to the user liking.  
-Image
+![](images/accessories.PNG)
 
 For the payment method, we decided to use stripe. It is very similar to paypal and many companies use it such as Reddit, Udemy, Lyft, Monzo etc. Stripe has a sandbox feature which allows you to implement into the browser and test it without using a proper card. There are many **'test' cards** you can choose from, but we mainly tried: **4242 4242 4242 4242**. When the user picks the phone/accessory they want to buy and put in the details they are brought to the charge page where the user gets a message, the product will be delivered to their address shortly. However, **in order to buy a product the user has to be logged in**.  
-Image
+![](images/)
 
 Compare page gives the user a chance to pick two phones from the entire databse and compare the different features of the phone. When a phone has a better spec from the other one, it will show a green or red coloured arrow depending which one is better and worse.  
-Image
+![](images/)
 
 When logged out, user can register and create an account on the website which is then stored into an database. Once account created there is a log in function and the user can access his account by logging in with the proper account name and password. Whilst logged in then you can buy products. Another feature you are allowed to see is 'my orders' which shows all the users previous orders the user did on the account they are currently logged into.  
-Image
+![](images/order.PNG)
 
 # Admin Panel and Default User
 In order to access admin panel type in your browser: **localhost:8000/admin7.0.0.1:8000/admin**  
@@ -31,7 +31,7 @@ you can also use James's Custom Made One
 
 Default user: 
 Django creates a admin panel by default. This made the whole project easier to handle and allowed us to focus on other parts of the project. Here in the admin panel we are allowed to add phones and accessories into the database, aswell as add users and edit users. A default user without the staff/admin role is not allowed to access the admin panel.  
-Image
+![](images/admin.PNG)
 
 
 # Requirements
