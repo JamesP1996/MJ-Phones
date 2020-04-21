@@ -77,7 +77,9 @@ Filter Phones - **Pass**
 Filter Accessories - **Pass**  
 Login - **Pass**  
 AdminPanel - **Pass**  
-Show Details - **Pass**  
+Show Details - **Pass** 
+
+Tests can be ran in your own **Selenium IDE** by going into tests folder and downloading the .side file.
 
 # Built with
 [Python](https://www.python.org/) - Language used  
