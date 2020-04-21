@@ -12,10 +12,10 @@ We allowed the user not only to buy phones but also phone accessories, which inc
 ![](images/accessories.PNG)
 
 For the payment method, we decided to use stripe. It is very similar to paypal and many companies use it such as Reddit, Udemy, Lyft, Monzo etc. Stripe has a sandbox feature which allows you to implement into the browser and test it without using a proper card. There are many **'test' cards** you can choose from, but we mainly tried: **4242 4242 4242 4242**. When the user picks the phone/accessory they want to buy and put in the details they are brought to the charge page where the user gets a message, the product will be delivered to their address shortly. However, **in order to buy a product the user has to be logged in**.  
-![](images/)
+
 
 Compare page gives the user a chance to pick two phones from the entire databse and compare the different features of the phone. When a phone has a better spec from the other one, it will show a green or red coloured arrow depending which one is better and worse.  
-![](images/)
+
 
 When logged out, user can register and create an account on the website which is then stored into an database. Once account created there is a log in function and the user can access his account by logging in with the proper account name and password. Whilst logged in then you can buy products. Another feature you are allowed to see is 'my orders' which shows all the users previous orders the user did on the account they are currently logged into.  
 ![](images/order.PNG)
