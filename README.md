@@ -11,24 +11,31 @@ Image
 We allowed the user not only to buy phones but also phone accessories, which include cases, cables, headphones etc. It is mostly like the phones page, where you can buy the product and filter to the user liking.  
 Image
 
-For the payment method, we decided to use stripe. It is very similar to paypal and many companies use it such as Reddit, Udemy, Lyft, Monzo etc. Stripe has a sandbox feature which allows you to implement into the browser and test it without using a proper card. There are many 'test' cards you can choose from, but we mainly tried: 4242 4242 4242 4242. When the user picks the phone/accessory they want to buy and put in the details they are brought to the charge page where the user gets a message, the product will be delivered to their address shortly. However, in order to buy a product the user has to be logged in.  
+For the payment method, we decided to use stripe. It is very similar to paypal and many companies use it such as Reddit, Udemy, Lyft, Monzo etc. Stripe has a sandbox feature which allows you to implement into the browser and test it without using a proper card. There are many **'test' cards** you can choose from, but we mainly tried: **4242 4242 4242 4242**. When the user picks the phone/accessory they want to buy and put in the details they are brought to the charge page where the user gets a message, the product will be delivered to their address shortly. However, **in order to buy a product the user has to be logged in**.  
 Image
 
-Compare page gives the user a chance to pick two phones from the entire databse and compare the different features of the phone. When a phone has a better spec from the other one, css is ued to show a green and red colour depending which one is better and worse.  
+Compare page gives the user a chance to pick two phones from the entire databse and compare the different features of the phone. When a phone has a better spec from the other one, it will show a green or red coloured arrow depending which one is better and worse.  
 Image
 
-When logged out, user can register and create an account on the website which is then stored into an database. Once account created there is a log in fucntion and the user can access his account by logging in with the proper account name and passowrd. Whilst logged in the you can buy products. Another feature you are allowed to see is 'my orders' which just shows all your previous orders the user did on that account.  
+When logged out, user can register and create an account on the website which is then stored into an database. Once account created there is a log in function and the user can access his account by logging in with the proper account name and password. Whilst logged in then you can buy products. Another feature you are allowed to see is 'my orders' which shows all the users previous orders the user did on the account they are currently logged into.  
 Image
 
-# Admin Panel and Default Uer
+# Admin Panel and Default User
 In order to access admin panel type in your browser: **localhost:8000/admin7.0.0.1:8000/admin**  
+You will need to log in as a staff user. 
+
+The user we have premade with admin priveledges is
+**Username: AdminUser Password:Admin321**
+you can also use James's Custom Made One
+**Username: jay Password:123**
+
 Default user: 
-Django creates a admin panel by default. This made the whole project easier to handle and allowed us to focus on other parts of the project. Here in the admin panel we are allowed to add phones and accessories into the database, aswell as add users and edit users. A default user is not allowed to access the admin panel.  
+Django creates a admin panel by default. This made the whole project easier to handle and allowed us to focus on other parts of the project. Here in the admin panel we are allowed to add phones and accessories into the database, aswell as add users and edit users. A default user without the staff/admin role is not allowed to access the admin panel.  
 Image
 
 
 # Requirements
-A RequireMents File of all the Packages Installed on the Version of PIP we used for Django Project. Many of these should have been updated but that should not affect the project integrity unless they were majorly changed. If that happens, you will need to install a older/legacy version of that package in pip that is more related to the required packages below.
+A Requirements.txt File of all the Packages Installed on the Version of PIP we used for Django Project. Many of these should have been updated but that should not affect the project integrity unless they were majorly changed. If that happens, you will need to install a older/legacy version of that package in pip that is more related to the required packages below.
 
 python==3.8.1  
 asgiref==3.2.7  
