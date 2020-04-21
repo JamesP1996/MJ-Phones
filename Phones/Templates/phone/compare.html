@@ -2,6 +2,9 @@
 {% extends "phone/base.html" %}
 <!--Display Block Content-->
 {% block content %}
+{% load static %}
+<!-- Comparison Table CSS -->
+<link rel="stylesheet" href="{% static 'compare.css'%}">
 
 <!--Script for Filter Button Show Hide Filters (Done to Remove Clutter during general browsing)-->
 <script>

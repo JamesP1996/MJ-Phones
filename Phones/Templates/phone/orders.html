@@ -2,30 +2,16 @@
 {% extends "phone/base.html" %}
 <!--Display Block Content from Base.html-->
 {% block content %}
+{% load static %}
+<!-- Order Table CSS -->
+<link rel="stylesheet" href="{% static 'orders.css'%}">
 
-<!-- Style for the Table -->
-<style>
-td, th {
-  border: 1px solid #999;
-  padding: 0.5rem;
-}
-table{
-    text-align:center;
-    font-family: "Agency FB";
-    font-size: 25px;
-    margin-left: 8rem;
-    margin-bottom: 20rem;
-    color: white;
-    background-color: rgb(2, 7, 171)
-
-}
-</style>
 
 <h1 class="home-h1">Your Orders</h1>
-<div style='background-color:black;'>
+<div class="orderDiv">
 <h4 style='color:white;'> All Orders Should Arrive Within 4-5 Working Days, If there is issues with an order. Please Contact Us at our Email Below</h4>
-    <table>
-        <tr>
+    <table style="">
+        <tr class="topRows">
             <td>Reference No#</td>
             <td>Product Name</td>
             <td>Date Ordered</td>
@@ -33,7 +19,7 @@ table{
     <!--For Each Order in the Orders Model Display Information-->
     {% for order in orders %}
          <tr>
-            <td>{{order.referrence}}</td>
+            <td class="reference">{{order.referrence}}</td>
             <!--If its a Phone Name Show Product Name as Phone Name else Show Product Name as an Accessory Name-->
             {% if order.phoneName is not None %}
                 <td>{{ order.phoneName }}</td>
