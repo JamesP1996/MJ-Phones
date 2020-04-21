@@ -1,0 +1,470 @@
+{
+  "id": "a853941f-74b0-446f-a333-eb90d19b48ab",
+  "version": "2.0",
+  "name": "Professional Practice In IT",
+  "url": "http://localhost:8000/",
+  "tests": [{
+    "id": "114194a5-a0fc-42b3-8c96-ee07e91a94b2",
+    "name": "Login",
+    "commands": [{
+      "id": "67e33fbc-0694-412a-8ab2-2e152752aba3",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "73b8952f-37a1-4015-9419-f9c383803b8e",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Login",
+      "targets": [
+        ["linkText=Login", "linkText"],
+        ["css=.navbar-nav:nth-child(2) > .nav-item:nth-child(1)", "css:finder"],
+        ["xpath=//a[contains(text(),'Login')]", "xpath:link"],
+        ["xpath=//div[@id='navbarToggle']/div[2]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/login/')]", "xpath:href"],
+        ["xpath=//div[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Login')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "801c0c0c-1839-4346-a025-36e03a94185d",
+      "comment": "",
+      "command": "type",
+      "target": "id=id_username",
+      "targets": [
+        ["id=id_username", "id"],
+        ["name=username", "name"],
+        ["css=#id_username", "css:finder"],
+        ["xpath=//input[@id='id_username']", "xpath:attributes"],
+        ["xpath=//p/input", "xpath:position"]
+      ],
+      "value": "AdminUser"
+    }, {
+      "id": "e9b41516-eb45-4094-8ae0-633e5eb8e28e",
+      "comment": "",
+      "command": "type",
+      "target": "id=id_password",
+      "targets": [
+        ["id=id_password", "id"],
+        ["name=password", "name"],
+        ["css=#id_password", "css:finder"],
+        ["xpath=//input[@id='id_password']", "xpath:attributes"],
+        ["xpath=//p[2]/input", "xpath:position"]
+      ],
+      "value": "Admin321"
+    }, {
+      "id": "82b80d48-9428-4005-8c45-934fc91c8da6",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//form/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Login')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "44e3678a-234d-4f93-b392-64c5ad946fec",
+    "name": "FilterPhones",
+    "commands": [{
+      "id": "240c3b4a-8475-452a-8709-02017c59f09b",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "6d16de70-edcc-4754-a769-4e6b38e6264d",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1382x744",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "08fe7116-267b-4d8d-86b6-3e600a3742a2",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Phones",
+      "targets": [
+        ["linkText=Phones", "linkText"],
+        ["css=.mr-auto > .nav-item:nth-child(2)", "css:finder"],
+        ["xpath=//a[contains(text(),'Phones')]", "xpath:link"],
+        ["xpath=//div[@id='navbarToggle']/div/a[2]", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/phones')]", "xpath:href"],
+        ["xpath=//a[2]", "xpath:position"],
+        ["xpath=//a[contains(.,'Phones')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "dae64ae6-3261-4fe5-9f25-dc4dc8559787",
+      "comment": "",
+      "command": "click",
+      "target": "css=.dropbtn",
+      "targets": [
+        ["css=.dropbtn", "css:finder"],
+        ["xpath=//button[@onclick='dropDown()']", "xpath:attributes"],
+        ["xpath=//div/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Filter Results')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "cbcea518-625e-43eb-81f1-8628aaedab48",
+      "comment": "",
+      "command": "click",
+      "target": "name=brand_contains",
+      "targets": [
+        ["name=brand_contains", "name"],
+        ["css=.form-row:nth-child(2) .form-control", "css:finder"],
+        ["xpath=//input[@name='brand_contains']", "xpath:attributes"],
+        ["xpath=//form[@id='filter']/div[2]/div/div/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "3df1bc43-bf0e-4841-bebf-0208aa6b38ff",
+      "comment": "",
+      "command": "type",
+      "target": "name=brand_contains",
+      "targets": [
+        ["name=brand_contains", "name"],
+        ["css=.form-row:nth-child(2) .form-control", "css:finder"],
+        ["xpath=//input[@name='brand_contains']", "xpath:attributes"],
+        ["xpath=//form[@id='filter']/div[2]/div/div/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div/input", "xpath:position"]
+      ],
+      "value": "Samsung"
+    }, {
+      "id": "c75c7cc1-4327-4093-a840-b3dc0f943eac",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn:nth-child(5)",
+      "targets": [
+        ["css=.btn:nth-child(5)", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//form[@id='filter']/button", "xpath:idRelative"],
+        ["xpath=//form/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Search')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "4c10aced-ae95-40ea-aa03-0b818359b1e1",
+    "name": "FilterAccessories",
+    "commands": [{
+      "id": "a8cad930-1293-4390-9ea0-c9dcbcd80248",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "c32172de-0d8c-4154-a9ad-a5bbde77dee1",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Phone Accessories",
+      "targets": [
+        ["linkText=Phone Accessories", "linkText"],
+        ["css=.nav-item:nth-child(3)", "css:finder"],
+        ["xpath=//a[contains(text(),'Phone Accessories')]", "xpath:link"],
+        ["xpath=//div[@id='navbarToggle']/div/a[3]", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/accessories')]", "xpath:href"],
+        ["xpath=//a[3]", "xpath:position"],
+        ["xpath=//a[contains(.,'Phone Accessories')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "a3849bd6-deda-45fa-999c-8c13086d9936",
+      "comment": "",
+      "command": "click",
+      "target": "css=.dropbtn",
+      "targets": [
+        ["css=.dropbtn", "css:finder"],
+        ["xpath=//button[@onclick='dropDown()']", "xpath:attributes"],
+        ["xpath=//div/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Filter Results')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "b747c39d-c3c8-483c-b597-cf0416e929b5",
+      "comment": "",
+      "command": "click",
+      "target": "id=category_contains",
+      "targets": [
+        ["id=category_contains", "id"],
+        ["name=category_contains", "name"],
+        ["css=#category_contains", "css:finder"],
+        ["xpath=//select[@id='category_contains']", "xpath:attributes"],
+        ["xpath=//form[@id='filter']/div[2]/div/select", "xpath:idRelative"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f1b673aa-3ad9-4487-84f0-10737c1beda5",
+      "comment": "",
+      "command": "select",
+      "target": "id=category_contains",
+      "targets": [],
+      "value": "label=Headphones"
+    }, {
+      "id": "4063de66-baa2-42ae-b748-8e6e6b92e537",
+      "comment": "",
+      "command": "click",
+      "target": "id=category_contains",
+      "targets": [
+        ["id=category_contains", "id"],
+        ["name=category_contains", "name"],
+        ["css=#category_contains", "css:finder"],
+        ["xpath=//select[@id='category_contains']", "xpath:attributes"],
+        ["xpath=//form[@id='filter']/div[2]/div/select", "xpath:idRelative"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "fb1e7935-d7d9-43f0-8c85-926260bc44f8",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//form[@id='filter']/button", "xpath:idRelative"],
+        ["xpath=//form/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Search')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "27c02c06-aa4b-4d90-aa8a-0494b934076c",
+    "name": "ComparePhones",
+    "commands": [{
+      "id": "cd9675e1-7d60-44f8-90d6-2ceed5d65da5",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "70a0c229-6c02-4b70-9216-acd372caa9a6",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Compare Phones",
+      "targets": [
+        ["linkText=Compare Phones", "linkText"],
+        ["css=.nav-item:nth-child(4)", "css:finder"],
+        ["xpath=//a[contains(text(),'Compare Phones')]", "xpath:link"],
+        ["xpath=//div[@id='navbarToggle']/div/a[4]", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/compare')]", "xpath:href"],
+        ["xpath=//a[4]", "xpath:position"],
+        ["xpath=//a[contains(.,'Compare Phones')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "433e7427-d280-4b37-a08f-95a7e09824b4",
+      "comment": "",
+      "command": "click",
+      "target": "id=name_contains1",
+      "targets": [
+        ["id=name_contains1", "id"],
+        ["name=name_contains1", "name"],
+        ["css=#name_contains1", "css:finder"],
+        ["xpath=//select[@id='name_contains1']", "xpath:attributes"],
+        ["xpath=//form[@id='filter']/div/div/select", "xpath:idRelative"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "430217a7-450b-4d1b-a3cc-e25f04690a37",
+      "comment": "",
+      "command": "select",
+      "target": "id=name_contains1",
+      "targets": [],
+      "value": "label=Galaxy s10"
+    }, {
+      "id": "180ec53a-82c3-482a-a732-e8caf7b82d21",
+      "comment": "",
+      "command": "click",
+      "target": "id=name_contains1",
+      "targets": [
+        ["id=name_contains1", "id"],
+        ["name=name_contains1", "name"],
+        ["css=#name_contains1", "css:finder"],
+        ["xpath=//select[@id='name_contains1']", "xpath:attributes"],
+        ["xpath=//form[@id='filter']/div/div/select", "xpath:idRelative"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "1cf6ec39-e72e-476a-86fd-58ca847f6cb5",
+      "comment": "",
+      "command": "click",
+      "target": "id=name_contains2",
+      "targets": [
+        ["id=name_contains2", "id"],
+        ["name=name_contains2", "name"],
+        ["css=#name_contains2", "css:finder"],
+        ["xpath=//select[@id='name_contains2']", "xpath:attributes"],
+        ["xpath=//form[@id='filter']/div/div[2]/select", "xpath:idRelative"],
+        ["xpath=//div[2]/select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "37f30f2b-3291-4fab-9ff1-bff2d7fd6488",
+      "comment": "",
+      "command": "select",
+      "target": "id=name_contains2",
+      "targets": [],
+      "value": "label=P30 Pro"
+    }, {
+      "id": "6994562e-058e-4c7f-90c5-397420fd848b",
+      "comment": "",
+      "command": "click",
+      "target": "id=name_contains2",
+      "targets": [
+        ["id=name_contains2", "id"],
+        ["name=name_contains2", "name"],
+        ["css=#name_contains2", "css:finder"],
+        ["xpath=//select[@id='name_contains2']", "xpath:attributes"],
+        ["xpath=//form[@id='filter']/div/div[2]/select", "xpath:idRelative"],
+        ["xpath=//div[2]/select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "419e2be4-a5d8-435c-af36-1428037bfbd8",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//form[@id='filter']/button", "xpath:idRelative"],
+        ["xpath=//form/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Compare')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "7772e14e-a763-4346-80de-e406dadd46ed",
+    "name": "LoginAdmin",
+    "commands": [{
+      "id": "93bdd4b3-c4a4-46ec-bc01-3aab6e5cc32e",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8000/admin/login/?next=/admin/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "3d0b1756-a912-4010-923f-0645157d8390",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "530x728",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ee6c30f4-aab5-41b5-a409-52cff4c0289f",
+      "comment": "",
+      "command": "type",
+      "target": "id=id_username",
+      "targets": [
+        ["id=id_username", "id"],
+        ["name=username", "name"],
+        ["css=#id_username", "css:finder"],
+        ["xpath=//input[@id='id_username']", "xpath:attributes"],
+        ["xpath=//form[@id='login-form']/div/input", "xpath:idRelative"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": "AdminUser"
+    }, {
+      "id": "40dfa0ac-1d36-4955-b14b-0168601d93ef",
+      "comment": "",
+      "command": "click",
+      "target": "id=id_password",
+      "targets": [
+        ["id=id_password", "id"],
+        ["name=password", "name"],
+        ["css=#id_password", "css:finder"],
+        ["xpath=//input[@id='id_password']", "xpath:attributes"],
+        ["xpath=//form[@id='login-form']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "4c1bdace-a0c4-4abd-ac4f-1d07a87b83bf",
+      "comment": "",
+      "command": "type",
+      "target": "id=id_password",
+      "targets": [
+        ["id=id_password", "id"],
+        ["name=password", "name"],
+        ["css=#id_password", "css:finder"],
+        ["xpath=//input[@id='id_password']", "xpath:attributes"],
+        ["xpath=//form[@id='login-form']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "Admin321"
+    }, {
+      "id": "ce7f30cc-ce59-429a-b15f-4262268b18d2",
+      "comment": "",
+      "command": "click",
+      "target": "css=.submit-row > input",
+      "targets": [
+        ["css=.submit-row > input", "css:finder"],
+        ["xpath=//input[@value='Log in']", "xpath:attributes"],
+        ["xpath=//form[@id='login-form']/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "4cfa8b01-3464-4354-b075-cc5473cffe54",
+    "name": "ShowDetails",
+    "commands": [{
+      "id": "5e49401d-cd66-4a33-9752-26dc284e4f38",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "50d45788-2bde-4cdb-bb14-be29ba8ced1a",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Phones",
+      "targets": [
+        ["linkText=Phones", "linkText"],
+        ["css=.mr-auto > .nav-item:nth-child(2)", "css:finder"],
+        ["xpath=//a[contains(text(),'Phones')]", "xpath:link"],
+        ["xpath=//div[@id='navbarToggle']/div/a[2]", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/phones')]", "xpath:href"],
+        ["xpath=//a[2]", "xpath:position"],
+        ["xpath=//a[contains(.,'Phones')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "d98b509e-3e7e-4c43-9d10-ede86c8fe953",
+      "comment": "",
+      "command": "click",
+      "target": "css=.device-product-div:nth-child(5) > .btn",
+      "targets": [
+        ["css=.device-product-div:nth-child(5) > .btn", "css:finder"],
+        ["xpath=(//button[@type='button'])[2]", "xpath:attributes"],
+        ["xpath=//div[2]/button", "xpath:position"],
+        ["xpath=//button[contains(.,' Show All Product Details')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "a05d529d-97a4-4886-a4a6-138dc3e4631f",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["114194a5-a0fc-42b3-8c96-ee07e91a94b2"]
+  }],
+  "urls": ["http://localhost:8000/", "http://localhost:8000/admin"],
+  "plugins": []
+}
