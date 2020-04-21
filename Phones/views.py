@@ -161,24 +161,27 @@ def comparePhones(request):
     name_contains_query1 = request.GET.get('name_contains1')
     name_contains_query2 = request.GET.get('name_contains2')
 
-    phonesSelected = False;
+    phonesSelected1 = False;
+    phonesSelected2 = False;
 
     # If the inputted name is a valid query. Filter the Query Set where the name of the phone = "name_contains_query"
     if is_valid_queryparam(name_contains_query1) and name_contains_query1 != 'Select...':
         phone1 = phone1.filter(name__iexact=name_contains_query1)
-        phonesSelected = True;
+        phonesSelected1 = True;
 
     # If the inputted name is a valid query. Filter the Query Set where the name of the phone = "name_contains_query"
     if is_valid_queryparam(name_contains_query2) and name_contains_query2 != 'Select...':
         phone2 = phone2.filter(name__iexact=name_contains_query2)
-        phonesSelected = True;
+        phonesSelected2 = True;
 
     context = {
         'phone1': phone1,
         'phone2': phone2,
+        'phones' : zip(phone1,phone2),
         'filter1': filter1,
         'filter2': filter2,
-        'phonesSelected': phonesSelected
+        'phonesSelected1': phonesSelected1,
+        'phoneSelected2': phonesSelected2
     }
     return render(request, 'phone/compare.html', context)
 

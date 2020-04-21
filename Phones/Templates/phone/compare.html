@@ -19,23 +19,18 @@ function disableEmptyInputs(form) {
   }
 }
 
-function comparePhones(){
-    
-}
-
 </script>
 <!--Main Content-->
 <!-- Compare Header -->
 <h1 class="home-h1">MJ-Phones Comparison</h1>
+<div class="container">
 <!--Button To Show/Hide Filter Form-->
-<div >
-    <!--Start of Filter Form-->
     <form method="GET" action="." id="filter" class="device-product-div filter" onsubmit="disableEmptyInputs(this)">
-      <!--Filter By Category-->
 
-        <div class="form-row">
-        <div class="form-group col-md-4">
-            <label for="name_contains1">Category</label>
+
+        <div class="form-row" style="margin-top: 1.5rem; margin-left:1px; background-color:lightgray; width: 100%">
+        <div class="form-group col-md-4" style="margin-left: 7.5rem;">
+            <label for="name_contains1">First Phone to Compare</label>
             <select id="name_contains1" class="form-control" name="name_contains1">
               <option selected>Select...</option>
               {% for fil in filter1 %}
@@ -45,7 +40,7 @@ function comparePhones(){
         </div><!--End of form-group div (Category)-->
         <!--Filter By Category-->
         <div class="form-group col-md-4">
-            <label for="name_contains2">Category</label>
+            <label for="name_contains2">Second Phone to Compare</label>
             <select id="name_contains2" class="form-control" name="name_contains2">
               <option selected>Select...</option>
               {% for fil in filter2 %}
@@ -54,33 +49,176 @@ function comparePhones(){
             </select>
         </div><!--End of form-group div (Category)-->
       </div>
-
-
-
-
-      <button type="submit" class="btn btn-primary">Compare</button>
+      <button type="submit" class="btn btn-primary" style="margin-bottom: 40px;">Compare</button>
     </form><!-- End of Form -->
 
 </div><!--End of DropDown Button PopUp Menu-->
-    <div style='background-color:white;'>
-    {% if phonesSelected == True %}
-        <table>
-            {% for p1 in phone1 %}
-               <tr>
-                    <th>Battery Life:</th>
-                    <td>{{ p1.battery }}</td>
-                    <td>{{ p1.cpu}}</td>
-               </tr>
-            {% endfor %}
-
-            {% for p2 in phone2 %}
-                <tr>
-                    <th>Battery Life:</th>
-                    <td id="battery2">{{ p2.battery }}</td>
-                    <td>{{ p2.cpu}}</td>
-                </tr>
-            {% endfor %}
-        </table>
+{% if phonesSelected1 and phoneSelected2 %}
+{% for phone1,phone2 in phones %}
+<table style="width: 96%">
+  <tr>
+    <th style="width:35%">Specifications</th>
+    <th>{{phone1.brand}} {{phone1.name}}</th>
+    <th>{{phone2.brand}} {{phone2.name}}</th>
+  </tr>
+  <tr>
+    <td>Processor Speed</td>
+    {% if phone1.cpu > phone2.cpu %}
+    <td><i class="fa fa-check">Better</i><br>{{phone1.cpu}} ghz</td>
+    <td><i class="fa fa-remove">Worse</i><br>{{phone2.cpu}} ghz</td>
+    {% elif phone2.cpu > phone1.cpu %}
+    <td><i class="fa fa-remove">Worse</i><br>{{phone1.cpu}} ghz</td>
+    <td><i class="fa fa-check">Better</i><br>{{phone2.cpu}} ghz</td>
+    {% else %}
+    <td>Equal <br> {{phone1.cpu}} ghz </td>
+    <td>Equal <br> {{phone2.cpu}} ghz </td>
     {% endif %}
-    </div>
+  </tr>
+  <tr>
+    <td>Processor Cores</td>
+    {% if phone1.cpu_cores > phone2.cpu_cores %}
+    <td><i class="fa fa-check">Better</i><br>{{phone1.cpu_cores}} Core</td>
+    <td><i class="fa fa-remove">Worse</i><br>{{phone2.cpu_cores}} Core</td>
+    {% elif phone2.cpu_cores > phone1.cpu_cores %}
+    <td><i class="fa fa-remove">Worse</i><br>{{phone1.cpu_cores}} Core</td>
+    <td><i class="fa fa-check">Better</i><br>{{phone2.cpu_cores}} Core</td>
+    {% else %}
+    <td>Equal <br> {{phone1.cpu_cores}} Core</td>
+    <td>Equal <br> {{phone2.cpu_cores}} Core</td>
+    {% endif %}
+  </tr>
+  <tr>
+    <td>Ram(Memory)</td>
+    {% if phone1.ram > phone2.ram %}
+    <td><i class="fa fa-check">Better</i><br>{{phone1.ram}} gb</td>
+    <td><i class="fa fa-remove">Worse</i><br>{{phone2.ram}} gb</td>
+    {% elif phone2.ram > phone1.ram %}
+    <td><i class="fa fa-remove">Worse</i><br>{{phone1.ram}} gb</td>
+    <td><i class="fa fa-check">Better</i><br>{{phone2.ram}} gb</td>
+    {% else %}
+    <td>Equal <br> {{phone1.ram}} gb</td>
+    <td>Equal <br> {{phone2.ram}} gb</td>
+    {% endif %}
+  </tr>
+  <tr>
+    <td>Internal Memory(Storage)</td>
+    {% if phone1.internalMemory > phone2.internalMemory %}
+    <td><i class="fa fa-check">Better</i><br>{{phone1.internalMemory}} gb</td>
+    <td><i class="fa fa-remove">Worse</i><br>{{phone2.internalMemory}} gb</td>
+    {% elif phone2.internalMemory > phone1.internalMemory %}
+    <td><i class="fa fa-remove">Worse</i><br>{{phone1.internalMemory}} gb</td>
+    <td><i class="fa fa-check">Better</i><br>{{phone2.internalMemory}} gb</td>
+    {% else %}
+    <td>Equal <br>{{phone1.internalMemory}} gb</td>
+    <td>Equal <br>{{phone2.internalMemory}} gb</td>
+    {% endif %}
+  </tr>
+  <tr>
+    <td>4G Compatible</td>
+    {% if phone1.fourG is True and phone2.fourG != True %}
+    <td><i class="fa fa-check">Better</i> 4G Ready </td>
+    <td><i class="fa fa-remove">Worse</i> 4G Incompatible </td>
+    {% elif phone2.fourG is True and phone1.fourG != True %}
+    <td><i class="fa fa-remove">Worse</i> 4G Incompatible </td>
+    <td><i class="fa fa-check">Better</i> 4G Ready </td>
+    {% else %}
+    <td>Equal <br> 4G Ready </td>
+    <td>Equal <br> 4G Ready </td>
+    {% endif %}
+  </tr>
+  <tr>
+    <td>Display Size</td>
+    {% if phone1.display > phone2.display %}
+    <td><i class="fa fa-check">Better</i><br>{{phone1.display}} Inches</td>
+    <td><i class="fa fa-remove">Worse</i><br>{{phone2.display}} Inches</td>
+    {% elif phone2.display > phone1.display %}
+    <td><i class="fa fa-remove">Worse</i><br>{{phone1.display}} Inches</td>
+    <td><i class="fa fa-check">Better</i><br>{{phone2.display}} Inches</td>
+    {% else %}
+    <td>Equal <br>{{phone1.display}} Inches</td>
+    <td>Equal <br>{{phone2.display}} Inches</td>
+    {% endif %}
+  </tr>
+  <tr>
+    <td>Resolution Height</td>
+    {% if phone1.height > phone2.height %}
+    <td><i class="fa fa-check">Better</i><br>{{phone1.height}} Pixels</td>
+    <td><i class="fa fa-remove">Worse</i><br>{{phone2.height}} Pixels</td>
+    {% elif phone2.height > phone1.height %}
+    <td><i class="fa fa-remove">Worse</i><br>{{phone1.height}} Pixels</td>
+    <td><i class="fa fa-check">Better</i><br>{{phone2.height}} Pixels</td>
+    {% else %}
+    <td>Equal <br>{{phone1.height}} Pixels</td>
+    <td>Equal <br>{{phone2.height}} Pixels</td>
+    {% endif %}
+  </tr>
+  <tr>
+    <td>Resolution Width</td>
+    {% if phone1.width > phone2.width %}
+    <td><i class="fa fa-check">Better</i><br>{{phone1.width}} Pixels</td>
+    <td><i class="fa fa-remove">Worse</i><br>{{phone2.width}} Pixels</td>
+    {% elif phone2.width > phone1.width %}
+    <td><i class="fa fa-remove">Worse</i><br>{{phone1.width}} Pixels</td>
+    <td><i class="fa fa-check">Better</i><br>{{phone2.width}} Pixels</td>
+    {% else %}
+    <td>Equal <br>{{phone1.width}} Pixels</td>
+    <td>Equal <br>{{phone2.width}} Pixels</td>
+    {% endif %}
+  </tr>
+  <tr>
+    <td>Main Camera</td>
+    {% if phone1.mainCamera > phone2.mainCamera %}
+    <td><i class="fa fa-check">Better</i><br>{{phone1.mainCamera}} MegaPixels</td>
+    <td><i class="fa fa-remove">Worse</i><br>{{phone2.mainCamera}} MegaPixels</td>
+    {% elif phone2.mainCamera > phone1.mainCamera %}
+    <td><i class="fa fa-remove">Worse</i><br>{{phone1.mainCamera}} MegaPixels</td>
+    <td><i class="fa fa-check">Better</i><br>{{phone2.mainCamera}} MegaPixels</td>
+    {% else %}
+    <td>Equal <br>{{phone1.mainCamera}} MegaPixels</td>
+    <td>Equal <br>{{phone2.mainCamera}} MegaPixels</td>
+    {% endif %}
+  </tr>
+  <tr>
+    <td>Front Camera</td>
+    {% if phone1.frontCamera > phone2.frontCamera %}
+    <td><i class="fa fa-check">Better</i><br>{{phone1.frontCamera}} MegaPixels</td>
+    <td><i class="fa fa-remove">Worse</i><br>{{phone2.frontCamera}} MegaPixels</td>
+    {% elif phone2.frontCamera > phone1.frontCamera %}
+    <td><i class="fa fa-remove">Worse</i><br>{{phone1.frontCamera}} MegaPixels</td>
+    <td><i class="fa fa-check">Better</i><br>{{phone2.frontCamera}} MegaPixels</td>
+    {% else %}
+    <td>Equal <br>{{phone1.frontCamera}} MegaPixels</td>
+    <td>Equal <br>{{phone2.frontCamera}} MegaPixels</td>
+    {% endif %}
+  </tr>
+  <tr>
+    <td>Battery</td>
+    {% if phone1.battery > phone2.battery %}
+    <td><i class="fa fa-check">Better</i><br>{{phone1.battery}} mAh</td>
+    <td><i class="fa fa-remove">Worse</i><br>{{phone2.battery}} mAh</td>
+    {% elif phone2.battery > phone1.battery %}
+    <td><i class="fa fa-remove">Worse</i><br>{{phone1.battery}} mAh</td>
+    <td><i class="fa fa-check">Better</i><br>{{phone2.battery}} mAh</td>
+    {% else %}
+    <td>Equal <br>{{phone1.battery}} mAh</td>
+    <td>Equal <br>{{phone2.battery}} mAh</td>
+    {% endif %}
+  </tr>
+  <tr>
+    <td>Price</td>
+    {% if phone1.price < phone2.price %}
+    <td><i class="fa fa-check">Better</i><br>€{{phone1.price}}</td>
+    <td><i class="fa fa-remove">Worse</i><br>€{{phone2.price}}</td>
+    {% elif phone2.price < phone1.price %}
+    <td><i class="fa fa-remove">Worse</i><br>€{{phone1.price}}</td>
+    <td><i class="fa fa-check">Better</i><br>€{{phone2.price}}</td>
+    {% else %}
+    <td>Equal <br>€{{phone1.price}}</td>
+    <td>Equal <br>€{{phone2.price}}</td>
+    {% endif %}
+  </tr>
+</table>
+{% endfor %}
+{% endif %}
+
 {% endblock content %}
