@@ -71,7 +71,7 @@ run the server
 open broswer and type
 **localhost:8000 or 127.0.0.1:8000**
 
-# Tests
+# Tests Done With Selenium IDE for Chrome
 Compare Phones - **Pass**  
 Filter Phones - **Pass**  
 Filter Accessories - **Pass**  
