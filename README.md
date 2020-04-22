@@ -1,6 +1,11 @@
 # MJ-Phones
 This website made by Mateusz Pawlowski and James Porter. It's platform is ''Mobile Phone E-Commerce'' built upon Python's Django Framework.
 
+# Screen-Cast Link (Youtube) 
+This is the link to James's Youtube Screencast.
+https://youtu.be/UUFtaGVKcAg
+It gives a basic rundown of the project.
+
 # About
 Upon openening the website the user is presented the front page of the website. The main page is just a simple welcoming page, showing off a phone and some accessories. On the top of the site, there is a navbar which allows the user to manoeuvre through the other links. You can pick between home, phones, phones accessories, compare and depending on wheter you are logged in or not at the right hand side you will see login, register, logout and my orders. Each page is granted with the same css style and page layout. Managing the page each time in each html page we decided to create a base.html which stored all the basic css style and page layout and imported that into each page.  
 ![](images/mainPage.PNG)
