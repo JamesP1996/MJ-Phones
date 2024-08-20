@@ -2,7 +2,7 @@
 # Many of these should have been updated but that should not affect the project integrity unless they were majorly changed
 # If that happens, you will need to install a older/legacy version of that package in pip that is more related to the required packages below.
 asgiref==3.2.7
-certifi==2022.12.7
+certifi==2024.7.4
 chardet==3.0.4
 Django==3.0.5
 idna==2.9
